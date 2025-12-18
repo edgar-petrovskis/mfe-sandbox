@@ -1,0 +1,105 @@
+{
+  "name": "remoteApp2",
+  "projectType": "application",
+  "root": "apps/remoteApp2",
+  "sourceRoot": "apps/remoteApp2/src",
+  "targets": {
+    "build": {
+      "executor": "@nx/webpack:webpack",
+      "outputs": [
+        "{options.outputPath}"
+      ],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "apps/remoteApp2/dist",
+        "index": "apps/remoteApp2/src/index.html",
+        "baseHref": "/",
+        "main": "apps/remoteApp2/src/main.ts",
+        "tsConfig": "apps/remoteApp2/tsconfig.app.json",
+        "assets": [
+          "apps/remoteApp2/src/favicon.ico",
+          "apps/remoteApp2/src/assets"
+        ],
+        "styles": [],
+        "scripts": [],
+        "webpackConfig": "apps/remoteApp2/webpack.config.ts"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/remoteApp2/src/environments/environment.ts",
+              "with": "apps/remoteApp2/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false,
+          "webpackConfig": "apps/remoteApp2/webpack.config.prod.ts"
+        }
+      },
+      "dependsOn": [
+        "^build",
+        "typecheck"
+      ]
+    },
+    "serve": {
+      "executor": "@nx/react:module-federation-dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "remoteApp2:build",
+        "hmr": true,
+        "port": 4202
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "remoteApp2:build:development"
+        },
+        "production": {
+          "buildTarget": "remoteApp2:build:production",
+          "hmr": false
+        }
+      },
+      "dependsOn": [
+        "typecheck"
+      ]
+    },
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "serve-static": {
+      "executor": "@nx/react:module-federation-static-server",
+      "defaultConfiguration": "production",
+      "options": {
+        "serveTarget": "remoteApp2:serve"
+      },
+      "configurations": {
+        "development": {
+          "serveTarget": "remoteApp2:serve:development"
+        },
+        "production": {
+          "serveTarget": "remoteApp2:serve:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/jest:jest",
+      "outputs": [
+        "{projectRoot}/test-output/jest/coverage"
+      ],
+      "options": {
+        "jestConfig": "apps/remoteApp2/jest.config.cts"
+      }
+    }
+  }
+}

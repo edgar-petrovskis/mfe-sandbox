@@ -1,0 +1,14 @@
+{
+  "name": "remoteApp1",
+  "version": "0.0.1",
+  "private": true,
+  "exports": {
+    "./Module": {
+      "@mfe-sandbox/source": "./src/remote-entry.ts",
+      "types": "./src/remote-entry.ts",
+      "import": "./src/remote-entry.ts",
+      "default": "./src/remote-entry.ts"
+    }
+  },
+  "types": "./src/remote-entry.ts"
+}

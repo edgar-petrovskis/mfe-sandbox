@@ -14,16 +14,16 @@ export function App() {
           <Link to="/">Home</Link>
         </li>
         <li>
-          <Link to="/remote-app2">RemoteApp2</Link>
+          <Link to="/remote-app1">RemoteApp1</Link>
         </li>
         <li>
-          <Link to="/remote-app1">RemoteApp1</Link>
+          <Link to="/remote-app2">RemoteApp2</Link>
         </li>
       </ul>
       <Routes>
         <Route path="/" element={<NxWelcome title="shell-app" />} />
-        <Route path="/remote-app2" element={<RemoteApp2 />} />
         <Route path="/remote-app1" element={<RemoteApp1 />} />
+        <Route path="/remote-app2" element={<RemoteApp2 />} />
       </Routes>
     </React.Suspense>
   );

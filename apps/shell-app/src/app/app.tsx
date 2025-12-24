@@ -8,6 +8,11 @@ const RemoteApp2 = React.lazy(() => import('remoteApp2/Module'));
 const RemoteApp1 = React.lazy(() => import('remoteApp1/Module'));
 
 export function App() {
+  React.useEffect(() => {
+    // eslint-disable-next-line no-underscore-dangle
+    console.log((__webpack_share_scopes__ as any)?.default);
+  }, []);
+
   return (
     <React.Suspense fallback={null}>
       <Card

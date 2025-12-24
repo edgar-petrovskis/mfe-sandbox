@@ -15,6 +15,16 @@ const config: ModuleFederationConfig = {
    *
    */
   remotes: ['remoteApp1', 'remoteApp2'],
+  shared: (libraryName, sharedConfig) => {
+    if (libraryName === '@mfe-sandbox/ui-components') {
+      return {
+        singleton: true,
+        strictVersion: false,
+        requiredVersion: 'auto',
+      };
+    }
+    return sharedConfig;
+  },
 };
 
 /**

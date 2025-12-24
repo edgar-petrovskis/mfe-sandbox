@@ -5,6 +5,16 @@ const config: ModuleFederationConfig = {
   exposes: {
     './Module': './src/remote-entry.ts',
   },
+  shared: (libraryName, sharedConfig) => {
+    if (libraryName === '@mfe-sandbox/ui-components') {
+      return {
+        singleton: true,
+        strictVersion: false,
+        requiredVersion: 'auto',
+      };
+    }
+    return sharedConfig;
+  },
 };
 
 /**

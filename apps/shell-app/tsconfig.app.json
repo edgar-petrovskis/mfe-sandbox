@@ -34,10 +34,13 @@
   "include": ["src/**/*.js", "src/**/*.jsx", "src/**/*.ts", "src/**/*.tsx"],
   "references": [
     {
+      "path": "../remoteApp1/tsconfig.app.json"
+    },
+    {
       "path": "../remoteApp2/tsconfig.app.json"
     },
     {
-      "path": "../remoteApp1/tsconfig.app.json"
+      "path": "../../packages/ui-components/tsconfig.lib.json"
     }
   ]
 }

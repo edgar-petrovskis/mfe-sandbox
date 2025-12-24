@@ -1,6 +1,7 @@
 import * as React from 'react';
 import NxWelcome from './nx-welcome';
 import { Link, Route, Routes } from 'react-router-dom';
+import { Button, Card, Input } from '@mfe-sandbox/ui-components';
 
 const RemoteApp2 = React.lazy(() => import('remoteApp2/Module'));
 
@@ -9,6 +10,25 @@ const RemoteApp1 = React.lazy(() => import('remoteApp1/Module'));
 export function App() {
   return (
     <React.Suspense fallback={null}>
+      <Card
+        style={{
+          padding: '12px',
+          border: '1px solid #ddd',
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '8px',
+          maxWidth: '320px',
+        }}
+      >
+        <Button onClick={() => console.log('shell-app button click')}>
+          UI Button
+        </Button>
+        <Input
+          aria-label="shell-app input"
+          placeholder="Shell input"
+          style={{ display: 'block', marginTop: '8px' }}
+        />
+      </Card>
       <ul>
         <li>
           <Link to="/">Home</Link>

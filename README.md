@@ -1,34 +1,30 @@
 # MFE Sandbox (Nx + React + Webpack Module Federation)
 
-Dev-only monorepo to explore Nx Module Federation with static remotes and shared UI.
+Dev-only Nx monorepo to study static Module Federation with a host + two remotes and a shared UI singleton.
 
-## Projects
-- `apps/shell-app` — host (MF static remotes)
-- `apps/remoteApp1`, `apps/remoteApp2` — remotes
-- `packages/ui-components` — shared UI lib (Button, Input, Card), shared as MF singleton
-- `docs/` — architecture/HMR/sharing notes (`docs/04-ui-sharing.md`)
+## Workspace map
+- `apps/shell-app` — host; loads `remoteApp1` and `remoteApp2`
+- `apps/remoteApp1`, `apps/remoteApp2` — remotes exposed via Module Federation
+- `packages/ui-components` — shared UI library (Button, Input, Card) consumed as an MF singleton
+- `memory-bank/` — project brief, tech context, rules, active work, and progress history
 
 ## Getting started
 ```sh
 yarn install
-npx nx serve shell-app   # runs host + remotes
+yarn nx serve shell-app   # starts host and dev remotes (4200/4201/4202)
 ```
-Remotes can be served individually if needed: `npx nx serve remoteApp1`, `npx nx serve remoteApp2`.
+You can run remotes individually when needed: `yarn nx serve remoteApp1`, `yarn nx serve remoteApp2`.
 
 ## Lint / Test
-- Lint: `npx nx lint shell-app remoteApp1 remoteApp2 @mfe-sandbox/ui-components`
-- Tests (Jest configs exist; enable as needed): `npx nx test shell-app` (similarly for remotes)
+- Lint: `yarn nx lint shell-app remoteApp1 remoteApp2 @mfe-sandbox/ui-components`
+- Tests: Jest configs exist (`apps/*/jest.config.cts`); add specs and run e.g. `yarn nx test shell-app`
 
-## Module Federation
+## Module Federation facts
 - Static remotes declared in `apps/shell-app/module-federation.config.ts`
-- Shared UI: `@mfe-sandbox/ui-components` marked singleton via `shared` fn in `apps/*/module-federation.config.ts`
+- Nx dev server resolves remotes by name → port (no hardcoded URLs); ports: 4200/4201/4202
+- Shared UI singleton configured in `apps/*/module-federation.config.ts`
+- HMR across MF boundaries is not guaranteed; expect rebuild + refresh during development
 
 ## Tooling
+- Yarn (via corepack) workspace, Nx, Webpack, Jest
 - Conventional commits via commitlint + Husky (`commitlint.config.js`, `.husky/commit-msg`)
-
-## Docs
-- [docs/01-architecture-overview.md](docs/01-architecture-overview.md) — high-level MF architecture (host/remotes, ports, decisions)
-- [docs/02-module-federation-inventory.md](docs/02-module-federation-inventory.md) — where MF config lives and how Nx orchestrates
-- [docs/03-hmr-and-dx.md](docs/03-hmr-and-dx.md) — HMR expectations and dev workflow (rebuild + refresh)
-- [docs/04-ui-sharing.md](docs/04-ui-sharing.md) — monorepo import vs MF shared for UI lib
-- [CONTEXT-ANCHOR.md](CONTEXT-ANCHOR.md) — current state/next steps summary

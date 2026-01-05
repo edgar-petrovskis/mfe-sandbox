@@ -60,7 +60,7 @@
         "buildTarget": "shell-app:build",
         "hmr": true,
         "port": 4200,
-        "devRemotes": ["remoteApp1", "remoteApp2"]
+        "devRemotes": ["remoteApp1", "remoteApp2", "visualizerApp"]
       },
       "configurations": {
         "development": {

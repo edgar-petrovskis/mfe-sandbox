@@ -3,6 +3,8 @@ import NxWelcome from './nx-welcome';
 import { Link, Route, Routes } from 'react-router-dom';
 import { Button, Card, Input } from '@mfe-sandbox/ui-components';
 
+const VisualizerApp = React.lazy(() => import('visualizerApp/Module'));
+
 const RemoteApp2 = React.lazy(() => import('remoteApp2/Module'));
 
 const RemoteApp1 = React.lazy(() => import('remoteApp1/Module'));
@@ -39,6 +41,9 @@ export function App() {
           <Link to="/">Home</Link>
         </li>
         <li>
+          <Link to="/visualizer-app">VisualizerApp</Link>
+        </li>
+        <li>
           <Link to="/remote-app1">RemoteApp1</Link>
         </li>
         <li>
@@ -49,6 +54,7 @@ export function App() {
         <Route path="/" element={<NxWelcome title="shell-app" />} />
         <Route path="/remote-app1" element={<RemoteApp1 />} />
         <Route path="/remote-app2" element={<RemoteApp2 />} />
+        <Route path="/visualizer-app" element={<VisualizerApp />} />
       </Routes>
     </React.Suspense>
   );

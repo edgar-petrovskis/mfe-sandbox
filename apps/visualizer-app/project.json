@@ -1,0 +1,102 @@
+{
+  "name": "visualizerApp",
+  "projectType": "application",
+  "root": "apps/visualizer-app",
+  "sourceRoot": "apps/visualizer-app/src",
+  "targets": {
+      "build": {
+        "executor": "@nx/webpack:webpack",
+        "outputs": [
+          "{options.outputPath}"
+        ],
+        "defaultConfiguration": "production",
+        "options": {
+          "compiler": "babel",
+          "outputPath": "apps/visualizer-app/dist",
+          "index": "apps/visualizer-app/src/index.html",
+          "baseHref": "/",
+          "main": "apps/visualizer-app/src/main.ts",
+          "tsConfig": "apps/visualizer-app/tsconfig.app.json",
+          "assets": [
+            "apps/visualizer-app/src/favicon.ico",
+            "apps/visualizer-app/src/assets"
+          ],
+          "styles": [],
+          "scripts": [],
+          "webpackConfig": "apps/visualizer-app/webpack.config.ts"
+        },
+        "configurations": {
+          "development": {
+            "extractLicenses": false,
+            "optimization": false,
+            "sourceMap": true,
+            "vendorChunk": true
+          },
+          "production": {
+            "fileReplacements": [
+              {
+                "replace": "apps/visualizer-app/src/environments/environment.ts",
+                "with": "apps/visualizer-app/src/environments/environment.prod.ts"
+              }
+            ],
+            "optimization": true,
+            "outputHashing": "all",
+            "sourceMap": false,
+            "namedChunks": false,
+            "extractLicenses": true,
+            "vendorChunk": false,
+            "webpackConfig": "apps/visualizer-app/webpack.config.prod.ts"
+          }
+        },
+        "dependsOn": [
+          "^build",
+          "typecheck"
+        ]
+      },
+      "serve": {
+        "executor": "@nx/react:module-federation-dev-server",
+        "defaultConfiguration": "development",
+        "options": {
+          "buildTarget": "visualizerApp:build",
+          "hmr": true,
+          "port": 4203
+        },
+        "configurations": {
+          "development": {
+            "buildTarget": "visualizerApp:build:development"
+          },
+          "production": {
+            "buildTarget": "visualizerApp:build:production",
+            "hmr": false
+          }
+        },
+        "dependsOn": [
+          "typecheck"
+        ]
+      },
+      "serve-static": {
+        "executor": "@nx/react:module-federation-static-server",
+        "defaultConfiguration": "production",
+        "options": {
+          "serveTarget": "visualizerApp:serve"
+        },
+        "configurations": {
+          "development": {
+            "serveTarget": "visualizerApp:serve:development"
+          },
+          "production": {
+            "serveTarget": "visualizerApp:serve:production"
+          }
+        }
+      },
+      "test": {
+        "executor": "@nx/jest:jest",
+        "outputs": [
+          "{projectRoot}/test-output/jest/coverage"
+        ],
+        "options": {
+          "jestConfig": "apps/visualizer-app/jest.config.cts"
+        }
+      }
+    }
+}

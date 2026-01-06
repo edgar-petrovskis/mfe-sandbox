@@ -43,9 +43,10 @@ Completed phases are described in detail; future steps are kept as a checklist.
 
 - [x] Validate `visualizerApp` Module Federation wiring (port 4203) and host route.
 - [x] Establish FSD layout (app/pages/widgets/features/entities/shared) and stub `VisualizerPage`.
-- [ ] Define shared Strategy interface + registry.
-- [ ] Implement input parsing + algorithm dropdown + Run control.
-- [ ] Add animated chart to visualize algorithm steps across strategies.
+- [x] Define shared Strategy interface + registry.
+- [x] Implement input parsing + algorithm dropdown + Run control.
+- [x] Add bubble sort strategy with step emission and animated chart playback.
+- [ ] Add additional algorithms (e.g., insertion, selection, merge) and playback controls (play/pause/speed/reset).
 
 ### [ ] Phase 8 — Remote ↔ Remote Integration
 

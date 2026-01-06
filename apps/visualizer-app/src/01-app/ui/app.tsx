@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import NxWelcome from './nx-welcome';
+import { VisualizerPage } from '../../02-pages/visualizer';
 
 const StyledApp = styled.div`
   /* Your style here */
@@ -8,7 +8,8 @@ const StyledApp = styled.div`
 export function App() {
   return (
     <StyledApp>
-      <NxWelcome title="visualizerApp" />
+      <h1>VisualizerApp</h1>
+      <VisualizerPage />
     </StyledApp>
   );
 }

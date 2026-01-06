@@ -18,8 +18,7 @@
           "main": "apps/visualizer-app/src/main.ts",
           "tsConfig": "apps/visualizer-app/tsconfig.app.json",
           "assets": [
-            "apps/visualizer-app/src/favicon.ico",
-            "apps/visualizer-app/src/assets"
+            "apps/visualizer-app/src/favicon.ico"
           ],
           "styles": [],
           "scripts": [],

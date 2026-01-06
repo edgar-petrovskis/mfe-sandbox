@@ -41,8 +41,9 @@ Completed phases are described in detail; future steps are kept as a checklist.
 
 ### [ ] Phase 7b — Sorting Visualizer (New Remote)
 
-- [ ] Validate `visualizerApp` Module Federation wiring (port 4203) and host route.
-- [ ] Establish FSD layout (app/pages/widgets/features/entities/shared) and shared Strategy interface + registry.
+- [x] Validate `visualizerApp` Module Federation wiring (port 4203) and host route.
+- [x] Establish FSD layout (app/pages/widgets/features/entities/shared) and stub `VisualizerPage`.
+- [ ] Define shared Strategy interface + registry.
 - [ ] Implement input parsing + algorithm dropdown + Run control.
 - [ ] Add animated chart to visualize algorithm steps across strategies.
 

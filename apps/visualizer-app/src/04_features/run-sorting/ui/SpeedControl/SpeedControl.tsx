@@ -1,35 +1,14 @@
-import styled from 'styled-components';
 import type { InputHTMLAttributes } from 'react';
+import { Field, Label, Slider } from './SpeedControl.styles';
 
 type SpeedControlProps = {
   value: number;
   onValueChange: (value: number) => void;
 };
 
-const SPEED_MIN = 50;
-const SPEED_MAX = 100;
-const SPEED_STEP = 10;
-
-const Field = styled.label`
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  font-size: 13px;
-  color: #333;
-`;
-
-const Label = styled.span`
-  font-weight: 600;
-`;
-
-const Slider = styled.input<InputHTMLAttributes<HTMLInputElement>>`
-  width: 100%;
-  accent-color: #7c4dff;
-  &:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-  }
-`;
+const SPEED_MIN = 60;
+const SPEED_MAX = 200;
+const SPEED_STEP = 20;
 
 export function SpeedControl({
   value,

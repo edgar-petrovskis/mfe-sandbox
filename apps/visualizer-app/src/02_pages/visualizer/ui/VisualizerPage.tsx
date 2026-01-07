@@ -1,5 +1,9 @@
 import { useMemo, useState } from 'react';
-import { findStrategy, getStrategies } from '../../../05_entities/algorithm';
+import {
+  findStrategy,
+  getStrategies,
+  AlgorithmStep,
+} from '../../../05_entities/algorithm';
 import { SortingChart } from '../../../03_widgets/sorting-chart';
 import {
   generateDefaultInput,
@@ -59,7 +63,12 @@ export function VisualizerPage() {
             value={input}
             onChange={(e) => handleInputChange(e.target.value)}
             placeholder={INPUT_PLACEHOLDER}
-            style={{ width: '100%', padding: '6px 8px', border: '1px solid #ccc', borderRadius: '4px' }}
+            style={{
+              width: '100%',
+              padding: '6px 8px',
+              border: '1px solid #ccc',
+              borderRadius: '4px',
+            }}
           />
         </label>
         <AlgorithmSelect

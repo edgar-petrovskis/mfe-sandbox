@@ -40,9 +40,6 @@
       "path": "../remoteApp2/tsconfig.app.json"
     },
     {
-      "path": "../../packages/ui-components/tsconfig.lib.json"
-    },
-    {
       "path": "../visualizer-app/tsconfig.app.json"
     }
   ]

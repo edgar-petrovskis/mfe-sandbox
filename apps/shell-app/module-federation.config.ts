@@ -14,7 +14,7 @@ const config: ModuleFederationConfig = {
    * declare module 'my-external-remote';
    *
    */
-  remotes: ['remoteApp1', 'remoteApp2'],
+  remotes: ['remoteApp1', 'remoteApp2', 'visualizerApp'],
   shared: (libraryName, sharedConfig) => {
     if (libraryName === '@mfe-sandbox/ui-components') {
       return {

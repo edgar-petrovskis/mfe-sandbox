@@ -39,6 +39,16 @@ Completed phases are described in detail; future steps are kept as a checklist.
 - [ ] Integrate Tailwind into all applications.
 - [ ] Verify single theme instance without bundle duplication.
 
+### [ ] Phase 7b — Sorting Visualizer (New Remote)
+
+- [x] Validate `visualizerApp` Module Federation wiring (port 4203) and host route.
+- [x] Establish FSD layout (app/pages/widgets/features/entities/shared) and stub `VisualizerPage`.
+- [x] Define shared Strategy interface + registry.
+- [x] Implement input parsing + algorithm dropdown + Run control.
+- [x] Add bubble sort strategy with step emission and animated chart playback.
+- [x] Style visualizer controls and chart with styled-components; chart shows axes/labels/ticks.
+- [ ] Add additional algorithms (e.g., insertion, selection, merge) and playback controls (play/pause/speed/reset).
+
 ### [ ] Phase 8 — Remote ↔ Remote Integration
 
 - [ ] Export/import modules between remotes bypassing the host.

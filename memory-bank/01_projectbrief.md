@@ -49,7 +49,11 @@ Any production-related concerns are explicitly out of scope.
   - Federated remote
   - Exposes a React module
 
-The host runs on port 4200, with remotes on 4201 and 4202.
+- **visualizerApp**
+  - Federated remote
+  - Sorting visualizer using Strategy pattern + FSD slices
+
+The host runs on port 4200, with remotes on 4201, 4202, and 4203.
 
 ---
 
@@ -75,8 +79,8 @@ This repository is intended for:
 
 ## How to Read This Repository
 
-- `01-projectbrief.md` explains **why the project exists**
-- `02-techContext.md` documents **what is technically true**
-- `03-systemPatterns.md` defines **what is allowed or forbidden**
-- `04-activeContext.md` shows **what is happening right now**
-- `05-progress.md` records **what has been decided and completed**
+- `01_projectbrief.md` explains **why the project exists**
+- `02_techContext.md` documents **what is technically true**
+- `03_systemPatterns.md` defines **what is allowed or forbidden**
+- `04_activeContext.md` shows **what is happening right now**
+- `05_progress.md` records **what has been decided and completed**

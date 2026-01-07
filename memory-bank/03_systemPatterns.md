@@ -17,6 +17,7 @@ Any suggestion that violates this file is considered invalid.
 - MUST: Shared UI package is declared as an MF shared singleton.
 - MUST: All applications consume the same runtime instance of shared UI.
 - MUST: The accepted MF dev model is rebuild + refresh.
+- MUST: Feature-Sliced Design (FSD) structure for apps (e.g., `01_app`, `02_pages`, `03_widgets`, `04_features`, `05_entities`) with logic co-located; promote components only when reused.
 
 ---
 

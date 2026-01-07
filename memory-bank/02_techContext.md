@@ -42,6 +42,10 @@ If something is not written here, it must be treated as unknown.
   - Role: Federated remote
   - Exposes a React module
 
+- visualizerApp
+  - Role: Federated remote (static MF)
+  - Exposes sorting visualizer page (Strategy pattern, FSD slices, styled-components UI)
+
 ---
 
 ## Dev Runtime Ports
@@ -51,6 +55,7 @@ If something is not written here, it must be treated as unknown.
 | shell-app  | 4200 |
 | remoteApp1 | 4201 |
 | remoteApp2 | 4202 |
+| visualizerApp | 4203 |
 
 ---
 

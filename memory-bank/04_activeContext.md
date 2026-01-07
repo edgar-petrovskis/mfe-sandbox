@@ -22,9 +22,10 @@
 - ✅ Removed legacy files (`docs/`, `CONTEXT-ANCHOR.md`, `PROMPT.md`).
 - ✅ Project Roadmap integrated into `05-progress.md`.
 - ✅ `visualizerApp` MF wiring validated (port 4203) and host route resolved.
-- ✅ `visualizerApp` FSD skeleton created (`01-app`, `02-pages/visualizer`, `03-widgets`, `04-features`, `05-entities`) with stub `VisualizerPage`.
+- ✅ `visualizerApp` FSD skeleton created (`01_app`, `02_pages/visualizer`, `03_widgets`, `04_features`, `05_entities`) with stub `VisualizerPage`.
 - ✅ Strategy contract + registry stubbed; Visualizer UI shell parses numbers, selects algorithms from registry, and has a Run trigger + chart.
 - ✅ Bubble sort strategy implemented with step emission; chart widget renders bars with highlighted comparisons and auto-plays steps.
+- ✅ Visualizer UI/components refactored to styled-components; chart now renders axes/labels/ticks with improved layout; controls (select/speed/input) styled and typed.
 
 ---
 

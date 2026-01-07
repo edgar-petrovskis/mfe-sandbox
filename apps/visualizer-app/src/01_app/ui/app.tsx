@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import { VisualizerPage } from '../../02-pages/visualizer';
+import { VisualizerPage } from '../../02_pages/visualizer';
 
 const StyledApp = styled.div`
   /* Your style here */

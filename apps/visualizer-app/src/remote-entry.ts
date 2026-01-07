@@ -1,1 +1,1 @@
-export { default } from './01-app/ui/app';
+export { default } from './01_app/ui/app';

@@ -1,4 +1,4 @@
-import { AlgorithmStep, AlgorithmStrategy } from './types';
+import { AlgorithmStep, AlgorithmStrategy, AlgorithmId } from './types';
 
 function* bubbleSortSteps(input: number[]): Iterable<AlgorithmStep> {
   const arr = [...input];
@@ -32,6 +32,10 @@ export function getStrategies(): AlgorithmStrategy[] {
   return strategies;
 }
 
-export function findStrategy(id: string): AlgorithmStrategy | undefined {
-  return strategies.find((strategy) => strategy.id === id);
+export function findStrategy(id: AlgorithmId): AlgorithmStrategy {
+  const strategy = strategies.find((entry) => entry.id === id);
+  if (!strategy) {
+    throw new Error(`Strategy not found for id: ${id}`);
+  }
+  return strategy;
 }

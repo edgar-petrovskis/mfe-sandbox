@@ -46,6 +46,7 @@ Completed phases are described in detail; future steps are kept as a checklist.
 - [x] Define shared Strategy interface + registry.
 - [x] Implement input parsing + algorithm dropdown + Run control.
 - [x] Add bubble sort strategy with step emission and animated chart playback.
+- [x] Style visualizer controls and chart with styled-components; chart shows axes/labels/ticks.
 - [ ] Add additional algorithms (e.g., insertion, selection, merge) and playback controls (play/pause/speed/reset).
 
 ### [ ] Phase 8 — Remote ↔ Remote Integration

@@ -1,10 +1,12 @@
+export type AlgorithmId = 'bubble';
+
 export type AlgorithmStep = {
   array: number[];
   highlighted?: number[]; // indices being compared or swapped
 };
 
 export interface AlgorithmStrategy {
-  id: string;
+  id: AlgorithmId;
   label: string;
   run(input: number[]): AsyncIterable<AlgorithmStep> | Iterable<AlgorithmStep>;
 }

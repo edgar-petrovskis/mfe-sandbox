@@ -1,22 +1,22 @@
 import { useMemo, useState } from 'react';
-import {
-  findStrategy,
-  getStrategies,
-  AlgorithmStep,
-} from '../../../05_entities/algorithm';
 import { SortingChart } from '../../../03_widgets/sorting-chart';
-import {
-  generateDefaultInput,
-  parseInput,
-  sanitizeNumberListInput,
-} from '../../../05_entities/algorithm/lib/input';
-import type { AlgorithmId } from '../../../05_entities/algorithm';
 import {
   AlgorithmSelect,
   collectSteps,
   SpeedControl,
   usePlayback,
 } from '../../../04_features';
+import type { AlgorithmId } from '../../../05_entities';
+import {
+  findStrategy,
+  getStrategies,
+  AlgorithmStep,
+} from '../../../05_entities';
+import {
+  generateDefaultInput,
+  parseInput,
+  sanitizeNumberListInput,
+} from '../../../04_features/run-sorting/lib/input';
 
 type AlgorithmOption = {
   id: AlgorithmId;
@@ -24,7 +24,7 @@ type AlgorithmOption = {
 };
 
 const INPUT_PLACEHOLDER = 'e.g. 5, 1, 4, 2, 8';
-const INITIAL_SPEED = 50;
+const INITIAL_SPEED = 110;
 
 export function VisualizerPage() {
   const options: AlgorithmOption[] = useMemo(
@@ -35,15 +35,15 @@ export function VisualizerPage() {
   const [selected, setSelected] = useState<AlgorithmId>(options[0].id);
   const [steps, setSteps] = useState<AlgorithmStep[]>([]);
   const [speedMs, setSpeedMs] = useState(INITIAL_SPEED);
-  const { currentStep, isPlaying, start } = usePlayback(steps, {
+  const { currentStep, start } = usePlayback(steps, {
     intervalMs: speedMs,
   });
 
-  const handleRun = async () => {
+  const handleRun = () => {
     const numbers = parseInput(input);
     const strategy = findStrategy(selected);
 
-    const collected = await collectSteps(strategy, numbers);
+    const collected = collectSteps(strategy, numbers);
 
     setSteps(collected);
     start();
@@ -76,11 +76,7 @@ export function VisualizerPage() {
           value={selected}
           onChange={(id) => setSelected(id)}
         />
-        <SpeedControl
-          value={speedMs}
-          onValueChange={setSpeedMs}
-          disabled={isPlaying}
-        />
+        <SpeedControl value={speedMs} onValueChange={setSpeedMs} />
         <button type="button" onClick={handleRun}>
           Run
         </button>

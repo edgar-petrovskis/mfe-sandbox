@@ -33,21 +33,22 @@ Completed phases are described in detail; future steps are kept as a checklist.
 
 ## 🗺 Roadmap (Future Steps)
 
-### [ ] Phase 7 — Tailwind CSS (Next Focus)
-
-- [ ] Create `ui-styles` library (shared config, globals.css).
-- [ ] Integrate Tailwind into all applications.
-- [ ] Verify single theme instance without bundle duplication.
-
-### [ ] Phase 7b — Sorting Visualizer (New Remote)
+### [ ] Phase 7a — Sorting Visualizer (New Remote)
 
 - [x] Validate `visualizerApp` Module Federation wiring (port 4203) and host route.
 - [x] Establish FSD layout (app/pages/widgets/features/entities/shared) and stub `VisualizerPage`.
 - [x] Define shared Strategy interface + registry.
 - [x] Implement input parsing + algorithm dropdown + Run control.
 - [x] Add bubble sort strategy with step emission and animated chart playback.
+- [x] Add selection sort strategy with step emission and registry entry.
 - [x] Style visualizer controls and chart with styled-components; chart shows axes/labels/ticks.
-- [ ] Add additional algorithms (e.g., insertion, selection, merge) and playback controls (play/pause/speed/reset).
+- [ ] Add additional algorithms (e.g., insertion, merge)
+
+### [ ] Phase 7b — Tailwind CSS (Next Focus)
+
+- [ ] Create `ui-styles` library (shared config, globals.css).
+- [ ] Integrate Tailwind into all applications.
+- [ ] Verify single theme instance without bundle duplication.
 
 ### [ ] Phase 8 — Remote ↔ Remote Integration
 

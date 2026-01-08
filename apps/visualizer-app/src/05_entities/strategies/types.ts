@@ -1,4 +1,4 @@
-export type AlgorithmId = 'bubble';
+export type AlgorithmId = 'bubble' | 'selection';
 
 export type AlgorithmStep = {
   array: number[];

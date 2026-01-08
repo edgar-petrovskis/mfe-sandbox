@@ -1,4 +1,4 @@
-import type { AlgorithmId } from '../../../../05_entities/algorithm';
+import type { AlgorithmId } from '../../../../05_entities';
 import { Field, Label, Select } from './AlgorithmSelect.styles';
 
 type Option = {

@@ -6,9 +6,9 @@ type SpeedControlProps = {
   onValueChange: (value: number) => void;
 };
 
-const SPEED_MIN = 60;
+const SPEED_MIN = 20;
 const SPEED_MAX = 200;
-const SPEED_STEP = 20;
+const SPEED_STEP = 5;
 
 export function SpeedControl({
   value,
@@ -18,6 +18,7 @@ export function SpeedControl({
 }: SpeedControlProps &
   Omit<InputHTMLAttributes<HTMLInputElement>, 'value' | 'onChange'>) {
   const clamped = Math.min(Math.max(value, SPEED_MIN), SPEED_MAX);
+  const invertedValue = SPEED_MAX + SPEED_MIN - clamped;
 
   return (
     <Field>
@@ -27,8 +28,11 @@ export function SpeedControl({
         min={SPEED_MIN}
         max={SPEED_MAX}
         step={SPEED_STEP}
-        value={clamped}
-        onChange={(e) => onValueChange(Number(e.target.value))}
+        value={invertedValue}
+        onChange={(e) => {
+          const raw = Number(e.target.value);
+          onValueChange(SPEED_MAX + SPEED_MIN - raw);
+        }}
         disabled={disabled}
         {...rest}
       />

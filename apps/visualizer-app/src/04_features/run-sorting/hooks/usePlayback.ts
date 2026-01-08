@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import type { AlgorithmStep } from '../../../05_entities/algorithm';
+import type { AlgorithmStep } from '../../../05_entities';
 
 type UsePlaybackOptions = {
   intervalMs?: number;
@@ -45,6 +45,5 @@ export function usePlayback(
     currentStep,
     isPlaying,
     start,
-    setCurrentStep,
   };
 }

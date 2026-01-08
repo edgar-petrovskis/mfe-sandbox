@@ -1,4 +1,4 @@
-import { AlgorithmStep } from '../../../05_entities/algorithm';
+import { AlgorithmStep } from '../../../05_entities';
 import {
   Bar,
   BarsGrid,

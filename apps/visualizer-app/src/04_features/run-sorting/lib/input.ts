@@ -1,6 +1,6 @@
 export function generateDefaultInput(): string {
-  const minLength = 7;
-  const maxLength = 10;
+  const minLength = 20;
+  const maxLength = 30;
   const length =
     Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
   const numbers = Array.from({ length }, () => Math.floor(Math.random() * 100));

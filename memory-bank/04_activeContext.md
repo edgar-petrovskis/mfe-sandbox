@@ -12,7 +12,7 @@
 - [ ] Researching the best way to share `tailwind.config.ts` in Nx.
 - [ ] Creating the base CSS package (design tokens, global styles).
 - [ ] Configuring PostCSS for Webpack Module Federation compatibility.
-- [ ] Adding more sorting strategies (beyond Bubble) and refining chart playback controls in `visualizerApp`.
+- [ ] Added selection sort strategy; continuing with more algorithms and playback controls.
 
 ---
 
@@ -26,6 +26,8 @@
 - ✅ Strategy contract + registry stubbed; Visualizer UI shell parses numbers, selects algorithms from registry, and has a Run trigger + chart.
 - ✅ Bubble sort strategy implemented with step emission; chart widget renders bars with highlighted comparisons and auto-plays steps.
 - ✅ Visualizer UI/components refactored to styled-components; chart now renders axes/labels/ticks with improved layout; controls (select/speed/input) styled and typed.
+- ✅ Speed slider direction corrected (right = faster).
+- ✅ Selection sort strategy implemented and registered.
 
 ---
 
